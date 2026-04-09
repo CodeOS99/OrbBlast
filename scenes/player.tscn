@@ -35,3 +35,6 @@ metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"
 
 [node name="WalkParticles" parent="Pivot" unique_id=303007691 instance=ExtResource("4_dqkch")]
 position = Vector2(0, 40)
+
+[node name="BulletPoint" type="Node2D" parent="Pivot" unique_id=734927358]
+position = Vector2(0, -120)

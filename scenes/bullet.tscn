@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cw1spbmaxixph"]
+
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://c3iyhgm3g0ag4" path="res://scripts/bullet.gd" id="1_y25gk"]
+
+[node name="Bullet" type="Node2D" unique_id=711814680]
+script = ExtResource("1_y25gk")
+
+[node name="Ellipse" type="Node2D" parent="." unique_id=1282946793]
+script = ExtResource("1_mkf8s")
+size = Vector2(18, 41)
+fill_color = Color(14.948135, 7.9756656, 0, 1)
+metadata/_custom_type_script = "uid://1nxdvmnbplfo"
