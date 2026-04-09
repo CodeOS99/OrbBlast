@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8qyxh0k5bspe"]
+
+[ext_resource type="Texture2D" uid="uid://ckvjnv078v3hc" path="res://assets/white_rectangle.png" id="1_ngaxv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_herov"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.5
+scale_max = 0.5
+
+[node name="WalkParticles" type="GPUParticles2D" unique_id=303007691]
+modulate = Color(0.7581918, 0.7581918, 0.7581917, 1)
+amount = 4
+texture = ExtResource("1_ngaxv")
+lifetime = 0.25
+explosiveness = 0.24
+process_material = SubResource("ParticleProcessMaterial_herov")
