@@ -2,6 +2,37 @@
 
 [ext_resource type="PackedScene" uid="uid://gdq6ldvr71hf" path="res://scenes/player.tscn" id="1_uvw88"]
 
+[sub_resource type="Environment" id="Environment_uvw88"]
+background_mode = 3
+background_energy_multiplier = 5.3
+glow_enabled = true
+
 [node name="MainGameArea" type="Node2D" unique_id=1814820045]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1493715710]
+environment = SubResource("Environment_uvw88")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1725849973]
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2016157015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1974399918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
 [node name="Player" parent="." unique_id=1558905933 instance=ExtResource("1_uvw88")]
+position = Vector2(553, 348)
