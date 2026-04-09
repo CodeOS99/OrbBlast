@@ -4,7 +4,6 @@
 
 [sub_resource type="Environment" id="Environment_uvw88"]
 background_mode = 3
-background_energy_multiplier = 5.3
 glow_enabled = true
 
 [node name="MainGameArea" type="Node2D" unique_id=1814820045]

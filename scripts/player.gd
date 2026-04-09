@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@onready var gun = $Pivot/Gun
+
 var bullet := preload("res://scenes/bullet.tscn")
 
 var last_mouse_pos := Vector2.ZERO
@@ -12,10 +14,19 @@ func _process(delta: float) -> void:
 	$Pivot.rotation = lerp_angle($Pivot.rotation, angle+PI/2, 0.5)
 
 	if Input.is_action_just_pressed("shoot"):
-		var bullet_instance = bullet.instantiate()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.global_position = $Pivot/BulletPoint.global_position
-		bullet_instance.rotation = $Pivot.rotation
+		if gun.visible:
+			shoot_bullet()
+		else:
+			$Pivot/Spike.visible = true
+	
+	if Input.is_action_just_released("shoot"):
+		$Pivot/Spike.visible = false
+
+func shoot_bullet():
+	var bullet_instance = bullet.instantiate()
+	get_tree().root.add_child(bullet_instance)
+	bullet_instance.global_position = $Pivot/BulletPoint.global_position
+	bullet_instance.rotation = $Pivot.rotation
 
 func _physics_process(delta: float) -> void:
 	var direction_vec := Vector2(

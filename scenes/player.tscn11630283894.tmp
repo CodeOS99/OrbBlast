@@ -18,11 +18,11 @@ script = ExtResource("1_g2els")
 
 [node name="Spike" type="Node2D" parent="Pivot" unique_id=53351928]
 visible = false
-position = Vector2(0, -55.513145)
+position = Vector2(0, -48)
 script = ExtResource("3_qlg0r")
-size = Vector2(32.081207, 61.63362)
+size = Vector2(32.081207, 46.60733)
 corner_radius = 0.0
-fill_color = Color(4.2734604, 2.3367429, 4.341997, 1)
+fill_color = Color(1.8826746, 1.6449894, 1.8826746, 1)
 metadata/_custom_type_script = "uid://byfovq1rv3fsc"
 
 [node name="Gun" type="Node2D" parent="Pivot" unique_id=1685785959]
