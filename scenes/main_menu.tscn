@@ -1,5 +1,14 @@
 [gd_scene format=3 uid="uid://buqetoefdlltc"]
 
+[ext_resource type="Script" uid="uid://egysyou470ej" path="res://scripts/play_button.gd" id="1_l6cm7"]
+
+[sub_resource type="Gradient" id="Gradient_vue75"]
+offsets = PackedFloat32Array(0, 0.42067307, 1)
+colors = PackedColorArray(0.002029048, 0.097811125, 0.5056197, 1, 0.0013022977, 0.06277782, 0.32452035, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l6cm7"]
+gradient = SubResource("Gradient_vue75")
+
 [node name="MainMenu" type="Control" unique_id=1151145420]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +16,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=866419716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_l6cm7")
 
 [node name="Label" type="Label" parent="." unique_id=680449238]
 layout_mode = 1
@@ -17,7 +36,7 @@ offset_left = -52.5
 offset_right = 52.5
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 84
 text = "ORB BLASTER"
 
 [node name="PlayButton" type="Button" parent="." unique_id=520513898]
@@ -35,3 +54,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "PLAY"
+script = ExtResource("1_l6cm7")
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]

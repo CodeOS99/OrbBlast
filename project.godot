@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/2d_shapes/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://bw316dijfsai0"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
