@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://gdq6ldvr71hf"]
+
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dru0g23r04wqj" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="3_qhqgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 50.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1558905933]
+script = ExtResource("1_g2els")
+
+[node name="Ellipse" type="Node2D" parent="." unique_id=1046519470]
+script = ExtResource("1_3vyb7")
+metadata/_custom_type_script = "uid://1nxdvmnbplfo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201059401]
+shape = SubResource("CircleShape2D_3vyb7")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=449955479]
+
+[node name="Rectangle" type="Node2D" parent="Pivot" unique_id=1685785959]
+position = Vector2(2, -73)
+script = ExtResource("3_qhqgy")
+size = Vector2(23.231598, 100)
+corner_radius = 0.0
+metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"

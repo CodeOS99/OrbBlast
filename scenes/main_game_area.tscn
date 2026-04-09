@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://cbfiu5bephqkq"]
 
-[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_uvw88"]
+[ext_resource type="PackedScene" uid="uid://gdq6ldvr71hf" path="res://scenes/player.tscn" id="1_uvw88"]
 
 [node name="MainGameArea" type="Node2D" unique_id=1814820045]
 
-[node name="Ellipse" type="Node2D" parent="." unique_id=525130620]
-script = ExtResource("1_uvw88")
-metadata/_custom_type_script = "uid://1nxdvmnbplfo"
+[node name="Player" parent="." unique_id=1558905933 instance=ExtResource("1_uvw88")]
