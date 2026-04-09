@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbfiu5bephqkq"]
 
 [ext_resource type="PackedScene" uid="uid://gdq6ldvr71hf" path="res://scenes/player.tscn" id="1_uvw88"]
+[ext_resource type="PackedScene" uid="uid://2kgteuphfut2" path="res://scenes/enemy_one.tscn" id="2_suhrf"]
 
 [sub_resource type="Environment" id="Environment_uvw88"]
 background_mode = 3
@@ -35,3 +36,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=1558905933 instance=ExtResource("1_uvw88")]
 position = Vector2(553, 348)
+
+[node name="Enemy_One" parent="." unique_id=726995523 instance=ExtResource("2_suhrf")]
+position = Vector2(192, 251)

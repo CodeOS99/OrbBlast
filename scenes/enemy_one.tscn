@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://2kgteuphfut2"]
+
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_6p3xy"]
+[ext_resource type="Script" uid="uid://m21o3r6qwu6q" path="res://scripts/enemy_one.gd" id="1_q8j5a"]
+[ext_resource type="Script" uid="uid://byfovq1rv3fsc" path="res://addons/2d_shapes/shapes/Triangle.gd" id="2_xe41m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xe41m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p3xy"]
+radius = 50.0
+
+[node name="Enemy_One" type="CharacterBody2D" unique_id=726995523]
+script = ExtResource("1_q8j5a")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=129184437]
+
+[node name="Spike" type="Node2D" parent="Pivot" unique_id=744476009]
+position = Vector2(0, -55.513145)
+script = ExtResource("2_xe41m")
+size = Vector2(32.081207, 61.63362)
+corner_radius = 0.0
+fill_color = Color(4.2734604, 2.3367429, 4.341997, 1)
+metadata/_custom_type_script = "uid://byfovq1rv3fsc"
+
+[node name="Ellipse" type="Node2D" parent="." unique_id=964532708]
+material = SubResource("ShaderMaterial_xe41m")
+script = ExtResource("1_6p3xy")
+fill_color = Color(5.713, 0, 0.486, 1)
+metadata/_custom_type_script = "uid://1nxdvmnbplfo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613401225]
+shape = SubResource("CircleShape2D_6p3xy")

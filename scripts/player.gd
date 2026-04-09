@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
 
@@ -8,6 +8,9 @@ var bullet := preload("res://scenes/bullet.tscn")
 
 var last_mouse_pos := Vector2.ZERO
 var mouse_move_threshold := 0.1
+
+func _ready() -> void:
+	Globals.player = self
 
 func _process(delta: float) -> void:
 	var angle = get_angle_to(get_global_mouse_position())
