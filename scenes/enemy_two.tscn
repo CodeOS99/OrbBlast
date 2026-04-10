@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b4k1lfu2c7ta7"]
+
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_ktofl"]
+[ext_resource type="Script" uid="uid://ctn5xmolfptiv" path="res://scripts/player_damager.gd" id="2_int0d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ln74"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtd32"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26sf1"]
+radius = 52.0
+
+[node name="EnemyTwo" type="CharacterBody2D" unique_id=850392009]
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1334402001]
+
+[node name="Ellipse" type="Node2D" parent="." unique_id=1795982015]
+material = SubResource("ShaderMaterial_1ln74")
+script = ExtResource("1_ktofl")
+fill_color = Color(0, 0, 5.7130203, 1)
+metadata/_custom_type_script = "uid://1nxdvmnbplfo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=841453528]
+shape = SubResource("CircleShape2D_dtd32")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=932938261]
+script = ExtResource("2_int0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=464188960]
+shape = SubResource("CircleShape2D_26sf1")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

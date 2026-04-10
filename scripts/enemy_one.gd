@@ -13,6 +13,9 @@ var gun_pickupable = preload("res://scenes/gun_pickupable.tscn")
 
 @export var health = 1
 
+func _ready() -> void:
+	get_tree().scene_changed.connect(self.queue_free)
+
 func _process(delta: float) -> void:
 	var angle = get_angle_to(Globals.player.global_position)
 	$Pivot.rotation = lerp_angle($Pivot.rotation, angle + PI/2, 0.1)

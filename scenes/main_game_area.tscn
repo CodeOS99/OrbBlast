@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gdq6ldvr71hf" path="res://scenes/player.tscn" id="1_uvw88"]
 [ext_resource type="PackedScene" uid="uid://2kgteuphfut2" path="res://scenes/enemy_one.tscn" id="2_suhrf"]
+[ext_resource type="Script" uid="uid://bsylxp40xeutv" path="res://scripts/enemy_spawner.gd" id="3_kh5i1"]
 
 [sub_resource type="Environment" id="Environment_uvw88"]
 background_mode = 3
@@ -39,3 +40,6 @@ position = Vector2(553, 348)
 
 [node name="Enemy_One" parent="." unique_id=726995523 instance=ExtResource("2_suhrf")]
 position = Vector2(192, 251)
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1829109396]
+script = ExtResource("3_kh5i1")
