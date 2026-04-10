@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	get_tree().scene_changed.connect(self.queue_free)
+
 func _process(delta: float) -> void:
 	if $Label.visible: # player in
 		if Input.is_action_just_pressed("pickup"):

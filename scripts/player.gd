@@ -1,13 +1,17 @@
 class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
+const AMMO_PER_GUN = 2
 
 @onready var gun = $Pivot/Gun
 
 var bullet := preload("res://scenes/bullet.tscn")
+var gun_explode_particles := preload("res://scenes/explosion_two.tscn")
 
 var last_mouse_pos := Vector2.ZERO
 var mouse_move_threshold := 0.1
+
+var gun_ammo = 0
 
 func _ready() -> void:
 	Globals.player = self
@@ -30,6 +34,10 @@ func shoot_bullet():
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.global_position = $Pivot/BulletPoint.global_position
 	bullet_instance.rotation = $Pivot.rotation
+	
+	gun_ammo -= 1
+	if gun_ammo == 0:
+		gun_destroyed()
 
 func _physics_process(delta: float) -> void:
 	var direction_vec := Vector2(
@@ -70,4 +78,14 @@ func is_mouse_moving():
 
 func pickup_gun():
 	$Pivot/Gun.visible = true
+	$Pivot/Spike.visible = false
+	gun_ammo = AMMO_PER_GUN
+
+func gun_destroyed():
+	$Pivot/Gun.visible = false
 	$Pivot/Spike.visible = true
+	
+	var particles = gun_explode_particles.instantiate()
+	get_tree().root.add_child(particles)
+	particles.emitting = true
+	particles.global_position = $Pivot/BulletPoint.global_position
