@@ -9,6 +9,7 @@ var target_pos = Vector2.ZERO
 var speed = CHASE_SPEED
 
 var particles = preload("res://scenes/explosion.tscn")
+var gun_pickupable = preload("res://scenes/gun_pickupable.tscn")
 
 @export var health = 1
 
@@ -41,8 +42,16 @@ func damage():
 	instance.global_position = self.global_position
 
 func destroy():
+	# Particle emmition
 	var instance = particles.instantiate()
 	instance.emitting = true
 	get_tree().root.add_child(instance)
 	instance.global_position = self.global_position
+	
+	# Gun Check
+	if randf() <= .5:
+		var drop = gun_pickupable.instantiate()
+		get_tree().root.add_child(drop)
+		drop.global_position = self.global_position
+	
 	self.queue_free()

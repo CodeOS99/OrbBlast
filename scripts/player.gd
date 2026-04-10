@@ -67,3 +67,7 @@ func is_mouse_moving():
 	var mouse_vel = current_mouse_pos.distance_to(last_mouse_pos)
 	
 	return mouse_vel > mouse_move_threshold
+
+func pickup_gun():
+	$Pivot/Gun.visible = true
+	$Pivot/Spike.visible = true
