@@ -3,13 +3,17 @@
 [ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_6p3xy"]
 [ext_resource type="Script" uid="uid://m21o3r6qwu6q" path="res://scripts/enemy_one.gd" id="1_q8j5a"]
 [ext_resource type="Script" uid="uid://byfovq1rv3fsc" path="res://addons/2d_shapes/shapes/Triangle.gd" id="2_xe41m"]
+[ext_resource type="Script" uid="uid://ctn5xmolfptiv" path="res://scripts/player_damager.gd" id="4_klct8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xe41m"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6p3xy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_klct8"]
 radius = 50.0
 
-[node name="Enemy_One" type="CharacterBody2D" unique_id=726995523]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p3xy"]
+radius = 52.0
+
+[node name="Enemy_One" type="CharacterBody2D" unique_id=726995523 groups=["enemy"]]
 script = ExtResource("1_q8j5a")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=129184437]
@@ -22,6 +26,13 @@ corner_radius = 0.0
 fill_color = Color(4.2734604, 2.3367429, 4.341997, 1)
 metadata/_custom_type_script = "uid://byfovq1rv3fsc"
 
+[node name="Area2D" type="Area2D" parent="Pivot" unique_id=2145472629]
+script = ExtResource("4_klct8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Area2D" unique_id=211354890]
+position = Vector2(1, -80)
+polygon = PackedVector2Array(0, -10, -10, 29, 10, 29)
+
 [node name="Ellipse" type="Node2D" parent="." unique_id=964532708]
 material = SubResource("ShaderMaterial_xe41m")
 script = ExtResource("1_6p3xy")
@@ -29,4 +40,13 @@ fill_color = Color(5.713, 0, 0.486, 1)
 metadata/_custom_type_script = "uid://1nxdvmnbplfo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613401225]
+shape = SubResource("CircleShape2D_klct8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=234670373]
+script = ExtResource("4_klct8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1269676586]
 shape = SubResource("CircleShape2D_6p3xy")
+
+[connection signal="body_entered" from="Pivot/Area2D" to="Pivot/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

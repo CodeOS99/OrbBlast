@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b5musxu37mkqv"]
+
+[ext_resource type="Script" uid="uid://egysyou470ej" path="res://scripts/play_button.gd" id="1_wqhvx"]
+[ext_resource type="Script" uid="uid://dbcbger2d3gqf" path="res://scripts/quit_button.gd" id="2_tbwuq"]
+
+[sub_resource type="Gradient" id="Gradient_vue75"]
+offsets = PackedFloat32Array(0, 0.42067307, 1)
+colors = PackedColorArray(0.002029048, 0.097811125, 0.5056197, 1, 0.0013022977, 0.06277782, 0.32452035, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wqhvx"]
+gradient = SubResource("Gradient_vue75")
+
+[node name="GameOver" type="Control" unique_id=970415549]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1575308189]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_wqhvx")
+
+[node name="Label" type="Label" parent="." unique_id=1184557342]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "game over!"
+
+[node name="Button2" type="Button" parent="." unique_id=892296874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -100.0
+offset_right = 104.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Replay"
+script = ExtResource("1_wqhvx")
+
+[node name="Button" type="Button" parent="." unique_id=8691948]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 44.0
+offset_right = 72.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+script = ExtResource("2_tbwuq")
+
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

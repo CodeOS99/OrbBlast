@@ -4,24 +4,31 @@
 [ext_resource type="Script" uid="uid://dru0g23r04wqj" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://byfovq1rv3fsc" path="res://addons/2d_shapes/shapes/Triangle.gd" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://dmxdxt1wgsnr4" path="res://scripts/enemy_damager.gd" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://c8qyxh0k5bspe" path="res://scenes/walk_particles.tscn" id="4_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 50.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1558905933]
+[node name="Player" type="CharacterBody2D" unique_id=1558905933 groups=["Player"]]
 script = ExtResource("1_g2els")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=449955479]
 
 [node name="Spike" type="Node2D" parent="Pivot" unique_id=53351928]
-visible = false
 position = Vector2(0, -55.513145)
 script = ExtResource("3_qlg0r")
 size = Vector2(32.081207, 61.63362)
 corner_radius = 0.0
 fill_color = Color(4.2734604, 2.3367429, 4.341997, 1)
 metadata/_custom_type_script = "uid://byfovq1rv3fsc"
+
+[node name="Area2D" type="Area2D" parent="Pivot/Spike" unique_id=673455435]
+script = ExtResource("3_tuyoq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Spike/Area2D" unique_id=1040447487]
+position = Vector2(0, -16.486855)
+polygon = PackedVector2Array(0, -16, -10, 23, 10, 23)
 
 [node name="Gun" type="Node2D" parent="Pivot" unique_id=1685785959]
 visible = false
@@ -44,5 +51,6 @@ fill_color = Color(4.9172873, 4.9172873, 4.9172873, 1)
 metadata/_custom_type_script = "uid://1nxdvmnbplfo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201059401]
-visible = false
 shape = SubResource("CircleShape2D_3vyb7")
+
+[connection signal="body_entered" from="Pivot/Spike/Area2D" to="Pivot/Spike/Area2D" method="_on_body_entered"]
