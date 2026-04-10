@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b7ebfyj5xikyq"]
+
+[ext_resource type="Script" uid="uid://c3iyhgm3g0ag4" path="res://scripts/bullet.gd" id="1_hmyi3"]
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_a0ysx"]
+[ext_resource type="Script" uid="uid://ctn5xmolfptiv" path="res://scripts/player_damager.gd" id="3_hmyi3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y25gk"]
+radius = 8.0
+height = 40.0
+
+[node name="BulletEnemy" type="Node2D" unique_id=711814680]
+script = ExtResource("1_hmyi3")
+
+[node name="Ellipse" type="Node2D" parent="." unique_id=1282946793]
+script = ExtResource("2_a0ysx")
+size = Vector2(18, 41)
+fill_color = Color(3.2944162, 0.34371778, 0, 1)
+metadata/_custom_type_script = "uid://1nxdvmnbplfo"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=756875643]
+script = ExtResource("3_hmyi3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1950496477]
+shape = SubResource("CapsuleShape2D_y25gk")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -35,6 +35,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func damage():
+	if not is_instance_valid(self):
+		return
+	
 	health -= 1
 	if health <= 0:
 		destroy()
@@ -56,5 +59,6 @@ func destroy():
 		var drop = gun_pickupable.instantiate()
 		get_tree().root.add_child(drop)
 		drop.global_position = self.global_position
-	
+		
+	Globals.score+=1
 	self.queue_free()

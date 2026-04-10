@@ -11,7 +11,7 @@ var gun_explode_particles := preload("res://scenes/explosion_two.tscn")
 var last_mouse_pos := Vector2.ZERO
 var mouse_move_threshold := 0.1
 
-var gun_ammo = 0
+var gun_ammo = 2
 
 func _ready() -> void:
 	Globals.player = self

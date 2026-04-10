@@ -6,4 +6,5 @@ func _ready() -> void:
 	get_tree().scene_changed.connect(self.queue_free)
 
 func _process(delta: float) -> void:
-	self.global_position += global_transform.basis_xform(Vector2(0, -SPEED*delta))
+	var direction = Vector2.UP.rotated(rotation)
+	global_position += direction * SPEED * delta

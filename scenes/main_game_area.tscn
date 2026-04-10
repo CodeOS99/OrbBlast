@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cbfiu5bephqkq"]
 
+[ext_resource type="Script" uid="uid://7xhybvapegeb" path="res://scripts/ScoreCounter.gd" id="1_fnref"]
 [ext_resource type="PackedScene" uid="uid://gdq6ldvr71hf" path="res://scenes/player.tscn" id="1_uvw88"]
 [ext_resource type="PackedScene" uid="uid://2kgteuphfut2" path="res://scenes/enemy_one.tscn" id="2_suhrf"]
 [ext_resource type="Script" uid="uid://bsylxp40xeutv" path="res://scripts/enemy_spawner.gd" id="3_kh5i1"]
@@ -9,10 +10,10 @@ background_mode = 3
 glow_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5i1"]
-size = Vector2(1171, 20)
+size = Vector2(2382, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnref"]
-size = Vector2(20, 662)
+size = Vector2(42, 1386)
 
 [node name="MainGameArea" type="Node2D" unique_id=1814820045]
 
@@ -41,6 +42,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=697373542]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+script = ExtResource("1_fnref")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=352045911]
+position = Vector2(553, 348)
+zoom = Vector2(0.5, 0.5)
+
 [node name="Player" parent="." unique_id=1558905933 instance=ExtResource("1_uvw88")]
 position = Vector2(553, 348)
 
@@ -53,17 +66,17 @@ script = ExtResource("3_kh5i1")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1142793738]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1726540368]
-position = Vector2(575.5, 0)
+position = Vector2(588, -311)
 shape = SubResource("RectangleShape2D_kh5i1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=704538697]
-position = Vector2(576, 648)
+position = Vector2(576, 1001)
 shape = SubResource("RectangleShape2D_kh5i1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=578051085]
-position = Vector2(0, 321)
+position = Vector2(-616, 347)
 shape = SubResource("RectangleShape2D_fnref")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1646615548]
-position = Vector2(1155, 321)
+position = Vector2(1715, 321)
 shape = SubResource("RectangleShape2D_fnref")

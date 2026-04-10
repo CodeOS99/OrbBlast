@@ -13,7 +13,7 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_26sf1"]
 radius = 52.0
 
-[node name="EnemyTwo" type="CharacterBody2D" unique_id=850392009]
+[node name="EnemyTwo" type="CharacterBody2D" unique_id=850392009 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_1ln74")
@@ -27,6 +27,9 @@ size = Vector2(23.231598, 100)
 corner_radius = 0.0
 fill_color = Color(0, 0.32352462, 0.83030987, 1)
 metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"
+
+[node name="BulletPoint" type="Node2D" parent="Pivot" unique_id=1500754464]
+position = Vector2(0, -119)
 
 [node name="Ellipse" type="Node2D" parent="." unique_id=1795982015]
 material = SubResource("ShaderMaterial_1ln74")

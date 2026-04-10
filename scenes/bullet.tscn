@@ -18,6 +18,7 @@ fill_color = Color(14.948135, 7.9756656, 0, 1)
 metadata/_custom_type_script = "uid://1nxdvmnbplfo"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=756875643]
+collision_mask = 2
 script = ExtResource("3_l5glv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1950496477]

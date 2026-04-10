@@ -6,7 +6,7 @@ const MAX_SPAWN_DISTANCE = 600.0
 
 var curr = INTERVAL
 
-var enemies = [preload("res://scenes/enemy_two.tscn")]
+var enemies = [preload("res://scenes/enemy_one.tscn"), preload("res://scenes/enemy_two.tscn")]
 
 func _process(delta: float) -> void:
 	curr -= delta

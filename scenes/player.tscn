@@ -16,6 +16,7 @@ script = ExtResource("1_g2els")
 [node name="Pivot" type="Node2D" parent="." unique_id=449955479]
 
 [node name="Spike" type="Node2D" parent="Pivot" unique_id=53351928]
+visible = false
 position = Vector2(0, -55.513145)
 script = ExtResource("3_qlg0r")
 size = Vector2(32.081207, 61.63362)
@@ -24,6 +25,7 @@ fill_color = Color(4.2734604, 2.3367429, 4.341997, 1)
 metadata/_custom_type_script = "uid://byfovq1rv3fsc"
 
 [node name="Area2D" type="Area2D" parent="Pivot/Spike" unique_id=673455435]
+collision_mask = 2
 script = ExtResource("3_tuyoq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Spike/Area2D" unique_id=1040447487]
@@ -31,7 +33,6 @@ position = Vector2(0, -16.486855)
 polygon = PackedVector2Array(0, -16, -10, 23, 10, 23)
 
 [node name="Gun" type="Node2D" parent="Pivot" unique_id=1685785959]
-visible = false
 position = Vector2(2, -73)
 script = ExtResource("3_qhqgy")
 size = Vector2(23.231598, 100)
