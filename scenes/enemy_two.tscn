@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b4k1lfu2c7ta7"]
 
+[ext_resource type="Script" uid="uid://desws4o14pg8l" path="res://scripts/enemy_two.gd" id="1_1ln74"]
+[ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_int0d"]
 [ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_ktofl"]
 [ext_resource type="Script" uid="uid://ctn5xmolfptiv" path="res://scripts/player_damager.gd" id="2_int0d"]
 
@@ -12,8 +14,19 @@ radius = 50.0
 radius = 52.0
 
 [node name="EnemyTwo" type="CharacterBody2D" unique_id=850392009]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1ln74")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1334402001]
+
+[node name="Gun" type="Node2D" parent="Pivot" unique_id=1854258270]
+position = Vector2(0, -71)
+script = ExtResource("1_int0d")
+size = Vector2(23.231598, 100)
+corner_radius = 0.0
+fill_color = Color(0, 0.32352462, 0.83030987, 1)
+metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"
 
 [node name="Ellipse" type="Node2D" parent="." unique_id=1795982015]
 material = SubResource("ShaderMaterial_1ln74")
@@ -29,5 +42,21 @@ script = ExtResource("2_int0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=464188960]
 shape = SubResource("CircleShape2D_26sf1")
+
+[node name="Notifiers" type="Node2D" parent="." unique_id=1454923087]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Notifiers" unique_id=1211936054]
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="Notifiers" unique_id=1649339202]
+position = Vector2(-52, 0)
+
+[node name="VisibleOnScreenNotifier2D3" type="VisibleOnScreenNotifier2D" parent="Notifiers" unique_id=473297329]
+position = Vector2(0, -119)
+
+[node name="VisibleOnScreenNotifier2D4" type="VisibleOnScreenNotifier2D" parent="Notifiers" unique_id=2106293219]
+position = Vector2(52, -2)
+
+[node name="VisibleOnScreenNotifier2D5" type="VisibleOnScreenNotifier2D" parent="Notifiers" unique_id=2110568059]
+position = Vector2(0, 54)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

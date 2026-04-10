@@ -14,6 +14,8 @@ radius = 50.0
 radius = 52.0
 
 [node name="Enemy_One" type="CharacterBody2D" unique_id=726995523 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_q8j5a")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=129184437]

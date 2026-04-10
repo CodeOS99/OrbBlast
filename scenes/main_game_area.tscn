@@ -8,6 +8,12 @@
 background_mode = 3
 glow_enabled = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5i1"]
+size = Vector2(1171, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnref"]
+size = Vector2(20, 662)
+
 [node name="MainGameArea" type="Node2D" unique_id=1814820045]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1493715710]
@@ -43,3 +49,21 @@ position = Vector2(192, 251)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1829109396]
 script = ExtResource("3_kh5i1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1142793738]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1726540368]
+position = Vector2(575.5, 0)
+shape = SubResource("RectangleShape2D_kh5i1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=704538697]
+position = Vector2(576, 648)
+shape = SubResource("RectangleShape2D_kh5i1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=578051085]
+position = Vector2(0, 321)
+shape = SubResource("RectangleShape2D_fnref")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1646615548]
+position = Vector2(1155, 321)
+shape = SubResource("RectangleShape2D_fnref")
